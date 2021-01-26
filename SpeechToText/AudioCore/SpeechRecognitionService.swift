@@ -24,7 +24,7 @@ let HOST = "speech.googleapis.com"
 typealias SpeechRecognitionCompletionHandler = (StreamingRecognizeResponse?, NSError?) -> Void
 
 open class SpeechRecognitionService {
-    var sampleRate: Int = 16000
+    var sampleRate: Int = 41000
   private var streaming = false
 
   private var client: Speech!
@@ -61,7 +61,7 @@ open class SpeechRecognitionService {
 
       let streamingRecognitionConfig = StreamingRecognitionConfig()
       streamingRecognitionConfig.config = recognitionConfig
-      streamingRecognitionConfig.singleUtterance = true
+      streamingRecognitionConfig.singleUtterance = false
       streamingRecognitionConfig.interimResults = true
 
       let streamingRecognizeRequest = StreamingRecognizeRequest()

@@ -143,6 +143,7 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
                 if finished {
                     if let finalSentence = ( response.resultsArray[0] as? StreamingRecognitionResult )?.alternativesArray[0] as? SpeechRecognitionAlternative, let wordArray = finalSentence.wordsArray as? [WordInfo] {
                         self.safeCover += finalSentence.transcript.lowercased()
+                        self.publishTranslated?.send((nil, nil))
                         self.wordsInfo.append(contentsOf: wordArray)
                     }
                 }

@@ -21,6 +21,7 @@ class MainViewModel: BaseViewModelProtocol {
     var recordSubject: AnyCancellable?
     var playBackSubject: AnyCancellable?
     var wordSearchSubject: AnyCancellable?
+    var loadingText = false // set the loading state, due to slow rate
     
     // for the alert view
     @Published var hasError = false
@@ -39,6 +40,7 @@ class MainViewModel: BaseViewModelProtocol {
     // Set the transcriber subject and subscribe
     func startRecording() {
         do {
+            self.loadingText = true
             self.resetPlayBack()
             state.transcribedTextEnd = Localizable.loading
             try transcriberDelegate?.setup(completion: { [weak self] (publisher) in
@@ -47,11 +49,19 @@ class MainViewModel: BaseViewModelProtocol {
                 }
                 self.state.recordingState = .recording
                 self.recordSubject =  publisher.sink { (value) in
+                
                     if let error = value.1 {
+                        self.loadingText = false
                         self.hasError = true
                         self.errorMessage = error.localizedDescription
                         self.stopRecording()
                     } else {
+                        if value.0 == nil {
+                            self.loadingText = false
+                            return
+                        }
+            
+                        self.loadingText = true
                         self.state.transcribedTextEnd = value.0 ?? ""
                         self.state.transcribedTextStart = ""
                         self.state.transcribedTextHighlight =  ""
@@ -67,6 +77,10 @@ class MainViewModel: BaseViewModelProtocol {
     /// Stop the recording process
     func stopRecording() {
         do {
+            if self.loadingText {
+                self.hasError = true
+                self.errorMessage = "Please waiting transcriber still in progress"
+            }
             self.state.recordingState = .idle
             try transcriberDelegate?.stopRecording()
         } catch {
@@ -77,6 +91,12 @@ class MainViewModel: BaseViewModelProtocol {
     // start the play back process
     func playback() {
         do {
+            if self.loadingText {
+                self.hasError = true
+                self.errorMessage = "Please waiting transcriber still in progress"
+                return
+            }
+            
             self.resetRecording()
             self.state.playingState = .playing
             try transcriberDelegate?.playBack(completion: { [weak self] (publisher) in
