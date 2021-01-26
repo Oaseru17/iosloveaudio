@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  SpeechToText
+
+  Created by Precious Osaro on 23/01/2021.
+  
+*/
+
+"title" = "1. Enregistrer 2. Afficher le test transcrit, 3. Lire l'audio avec mise en évidence du texte.";
+"record" = "Record";
+"play" = "Jouer";
+"placeHolderText" = "Transcrit s'affichera ici.";
+"recording" = "Stop Recording";
+"stop" = "Stop";

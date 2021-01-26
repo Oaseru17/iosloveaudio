@@ -1,0 +1,15 @@
+strings:
+  inputs: SpeechToText/SupportFiles/en.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      params:
+        enumName: Localizable
+        publicAccess: true
+      output: Modules/SharedResource/SharedResource/Sources/SharedResource/Strings.swift
+xcassets:
+  inputs: SpeechToText/SupportFiles/Assets.xcassets
+  outputs:
+    - templateName: swift4
+      params:
+        publicAccess: true
+      output: Modules/SharedResource/SharedResource/Sources/SharedResource/Assets.swift
