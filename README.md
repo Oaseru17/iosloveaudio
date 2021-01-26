@@ -79,3 +79,8 @@ Unit / UX test
 **Improvement**
 
 I intend to further improve on the task by building an application that allows for note dictation, editing of transcribed text, and reading of the text, design can be found in the provide Figma link
+
+**Issues encountered**
+crash format. SampleRate == hwFormat. SampleRate
+
+The above crash seems to happen randomly, trying to reproduce. But hard killing the app allows for the audio engine to restart
