@@ -96,8 +96,12 @@ class AudioManager: NSObject {
         let tapNode: AVAudioNode = mixerNode
         let format = tapNode.outputFormat(forBus: 0)
         
+        // set the format
+        var config = AudioEngineConfiguation.getConf()
+        let mixerFormat = AVAudioFormat( streamDescription: &config)
+        
         recordingURL  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("speechifyTestRecording.caf")
-        let file = try AVAudioFile(forWriting: recordingURL!, settings: format.settings, commonFormat: .pcmFormatInt16, interleaved: true)
+        let file = try AVAudioFile(forWriting: recordingURL!, settings: mixerFormat!.settings, commonFormat: .pcmFormatInt16, interleaved: true)
         
         tapNode.installTap(onBus: 0, bufferSize: 1024, format: format, block: { (buffer, _ ) in
             // send back the data
