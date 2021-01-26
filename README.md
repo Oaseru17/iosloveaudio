@@ -2,17 +2,18 @@
 
 **Task description**
 
-Declarative code - since this is the paradigm Apple is shifting to with SwiftUI &amp; Combine, we want our engineers to be equipped to adopt the latest technologies
+Develop an app that converts speech to text and allows for play back, with word highlighting.
+
 
 **Figma Link**
 
-To be to properly design the screen taking into account color codes, text sizes, and margins. I developed a quick Figma design, link below
+To properly design the screen taking into account color codes, text sizes, and margins. I developed a quick Figma design, link below
 
 [https://www.figma.com/file/AptFfHYGQgLsqyTNQVkTRO/Untitled?node-id=0%3A1](https://www.figma.com/file/AptFfHYGQgLsqyTNQVkTRO/Untitled?node-id=0%3A1)
 
 **Task requirements**
 
-Follow are the highlight of the requirement for the task
+The following are the highlight of the requirement for the task
 
 1. Reactive programming using combine.
 
@@ -32,7 +33,7 @@ Follow are the highlight of the requirement for the task
 
 **Architecture**
 
-The application is built with SWIFTUI + Combine as the reactive framework. Furthermore, the architecture used is modular MVVM.
+The application is built with SWIFTUI + Combine as the reactive framework. Furthermore, the architecture uses a modular MVVM structure.
 
 MVVM highlights how each unit is implemented, while for the general outlook modular architecture was implemented using Swift packages. The image on the next page represents the application&#39;s architecture
 
@@ -48,11 +49,11 @@ A swift package(module) is a group of related source codes that can run independ
 
 ![Screenshot](diagram2.png)
 
-Furthermore, each module can be release and managed in a git bucket rep thus reduce the bulk source file overhead
+Furthermore, each module can be release and managed in a git bucket repository thus reducing the bulk source code overhead
 
 **View Builder pattern**
 
-WIth SwiftUI navigation has been tightly coupled to the views, so Coordinator pattern though still achievable introduces a major boilerplate, the view builder pattern allows for the assignment of view building to a single class, thus provide a single source of truth for navigation and future changes in navigation flow.
+With SwiftUI, navigation has been tightly coupled to the views, so Coordinator pattern though still achievable introduces a major boilerplate, the view builder pattern allows for the assignment of view building to a single class, thus provide a single source of truth for navigation and future changes in navigation flow. This is available in the MainViewBuilder class
 
 **The benefit of modular architecture is numerous from the ease of onboarding new engineers. To rapid development and deployment.**
 
@@ -70,15 +71,20 @@ WIth SwiftUI navigation has been tightly coupled to the views, so Coordinator pa
 
 **SpeechifyCore:** The core required object, class, protocols, and struct for the application
 
+
+
 **Addition feature**
 
 Dark mode
 
 Unit / UX test
 
+
+
 **Improvement**
 
 I intend to further improve on the task by building an application that allows for note dictation, editing of transcribed text, and reading of the text, design can be found in the provide Figma link
+
 
 **Issues encountered**
 
