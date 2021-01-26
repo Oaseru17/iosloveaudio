@@ -99,7 +99,7 @@ class AudioManager: NSObject {
         recordingURL  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("speechifyTestRecording.caf")
         let file = try AVAudioFile(forWriting: recordingURL!, settings: format.settings, commonFormat: .pcmFormatInt16, interleaved: true)
         
-        tapNode.installTap(onBus: 0, bufferSize: 1024, format: format, block: { (buffer, _ ) in
+        tapNode.installTap(onBus: 0, bufferSize: 512, format: format, block: { (buffer, _ ) in
             // send back the data
             try? self.delegate?.processSampleData(Data(buffer: buffer))
             try? file.write(from: buffer)

@@ -10,7 +10,7 @@ import AVFoundation
 // the Audio engine configuration
 class AudioEngineConfiguation {
  
-    class func getConf(sampleRate:Double) -> AudioStreamBasicDescription {
+    class func getConf(sampleRate: Double) -> AudioStreamBasicDescription {
     var config = AudioStreamBasicDescription()
         config.mSampleRate = Float64(sampleRate)
         config.mFormatID = kAudioFormatLinearPCM

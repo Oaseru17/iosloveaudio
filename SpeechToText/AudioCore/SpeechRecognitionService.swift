@@ -61,7 +61,7 @@ open class SpeechRecognitionService {
 
       let streamingRecognitionConfig = StreamingRecognitionConfig()
       streamingRecognitionConfig.config = recognitionConfig
-      streamingRecognitionConfig.singleUtterance = false
+      streamingRecognitionConfig.singleUtterance = true
       streamingRecognitionConfig.interimResults = true
 
       let streamingRecognizeRequest = StreamingRecognizeRequest()

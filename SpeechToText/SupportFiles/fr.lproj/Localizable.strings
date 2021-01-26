@@ -9,6 +9,8 @@
 "title" = "1. Enregistrer 2. Afficher le test transcrit, 3. Lire l'audio avec mise en évidence du texte.";
 "record" = "Record";
 "play" = "Jouer";
-"placeHolderText" = "Transcrit s'affichera ici.";
+"placeHolderText" = "Transcrit s'affichera ici. veuillez patienter pendant que la transcription commence.";
 "recording" = "Stop Recording";
 "stop" = "Stop";
+"loading" = "Loading text";
+

@@ -40,6 +40,7 @@ class MainViewModel: BaseViewModelProtocol {
     func startRecording() {
         do {
             self.resetPlayBack()
+            state.transcribedTextEnd = Localizable.loading
             try transcriberDelegate?.setup(completion: { [weak self] (publisher) in
                 guard let self = self else {
                     return

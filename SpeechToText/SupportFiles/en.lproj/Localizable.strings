@@ -8,6 +8,7 @@
 "title" = "1. Record  2. View transcribed test, 3. Play back audio with text highlighting.";
 "record" = "Record";
 "play" = "Play";
-"placeHolderText" = "Transcribed will show here.";
+"placeHolderText" = "Transcribed will show here. please wait while transcribe begins.";
 "recording" = "Stop Recording";
 "stop" = "Stop";
+"loading" = "Loading text";
