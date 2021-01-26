@@ -12,5 +12,5 @@
 "placeHolderText" = "Transcrit s'affichera ici. veuillez patienter pendant que la transcription commence.";
 "recording" = "Stop Recording";
 "stop" = "Stop";
-"loading" = "Loading text";
+"loading" = "Loading text, Please wait. Play back button will be disabled till transcribing ends";
 
