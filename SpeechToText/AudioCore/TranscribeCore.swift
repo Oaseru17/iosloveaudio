@@ -121,9 +121,7 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
     
     /// sample data delegate
     func processSampleData(_ data: Data) {
-        audioData.append(data)
-        let chunkSize: Int  = Int( 2 * Double(audioManager.sampleRate) )
-        if audioData.length > chunkSize {
+           audioData.append(data)
             speedRegService.streamAudioData(audioData, completion: { (response, error) in
             if let error = error {
               self.publishTranslated?.send((nil, error))
@@ -150,7 +148,6 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
             }
         })
             self.audioData = NSMutableData()
-        }
     }
     
     func audioInterrupted() {
