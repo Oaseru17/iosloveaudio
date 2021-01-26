@@ -11,7 +11,7 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 public enum Localizable {
-  /// Loading text
+  /// Loading text, Please wait. Play back button will be disabled till transcribing ends
   public static let loading = Localizable.tr("Localizable", "loading")
   /// Transcribed will show here. please wait while transcribe begins.
   public static let placeHolderText = Localizable.tr("Localizable", "placeHolderText")

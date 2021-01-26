@@ -122,7 +122,7 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
     /// sample data delegate
     func processSampleData(_ data: Data) {
         audioData.append(data)
-        let chunkSize: Int  = Int( 0.2 * Double(audioManager.sampleRate) )
+        let chunkSize: Int  = Int( 2 * Double(audioManager.sampleRate) )
         if audioData.length > chunkSize {
             speedRegService.streamAudioData(audioData, completion: { (response, error) in
             if let error = error {

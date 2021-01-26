@@ -58,7 +58,7 @@ struct MainView: BaseViewProtocol {
                                 ? Localizable.play : Localizable.stop ) {
                         
                         playAction()
-                    }.buttonStyle(BaseButtonStyling(color: viewModel.loadingText ? Color(Asset.grayText.color) : Color(Asset.seconday.color)))
+                    }.disabled(viewModel.loadingText).buttonStyle(BaseButtonStyling(color: viewModel.loadingText ? Color(Asset.grayText.color) : Color(Asset.seconday.color)))
                     .accessibility(label: Text("Play back after recording"))
                     .accessibilityAction {
                         playAction()
