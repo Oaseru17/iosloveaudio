@@ -93,6 +93,7 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
         if currentPoint <= 0 && (self.remainWords.count == self.wordsInfo.count) {
             foundIndex = (0, true)
         } else {
+            // find the word that calls between that nanosecond
             for (index, value) in remainWords.enumerated() {
                 if index == 0 && !value.hasStartTime {
                     foundIndex = (0, true)
@@ -122,12 +123,14 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
     /// sample data delegate
     func processSampleData(_ data: Data) {
            audioData.append(data)
+        // push data to speech recognition service
             speedRegService.streamAudioData(audioData, completion: { (response, error) in
             if let error = error {
+                // push error
               self.publishTranslated?.send((nil, error))
             } else if let response = response {
-                var finished = false
-                for result in response.resultsArray! {
+                var finished = false // set finished as false
+                for result in response.resultsArray! { // lop through response for interim responses
                     if let result = result as? StreamingRecognitionResult {
                         let resutltData = ((result.alternativesArray[0] as?
                               SpeechRecognitionAlternative)?.transcript.lowercased() ?? "")
@@ -137,7 +140,7 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
                         }
                     }
                 }
-                
+                // on finish send final resilt and inform the mainview moduls
                 if finished {
                     if let finalSentence = ( response.resultsArray[0] as? StreamingRecognitionResult )?.alternativesArray[0] as? SpeechRecognitionAlternative, let wordArray = finalSentence.wordsArray as? [WordInfo] {
                         self.safeCover += finalSentence.transcript.lowercased()
