@@ -48,10 +48,11 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
     /// init the record process
     /// setting up rates
     private func initRecording() throws {
+        speedRegService.sampleRate = Int(audioManager.sampleRate)
         let audioSession = AVAudioSession.sharedInstance()
         do {
             audioData = NSMutableData()
-            try audioSession.setPreferredSampleRate(Double(AudioEngineConfiguation.sampleRate))
+           // try audioSession.setPreferredSampleRate(Double(AudioEngineConfiguation.sampleRate))
             try audioSession.setCategory(AVAudioSession.Category.playAndRecord)
             audioManager.delegate = self
             try audioManager.startRecording()
@@ -121,7 +122,7 @@ public class TranscribeCore: TranscriberInterface, AudioControllerDelegate, Audi
     /// sample data delegate
     func processSampleData(_ data: Data) {
         audioData.append(data)
-        let chunkSize: Int  = Int( 0.05 * Double(AudioEngineConfiguation.sampleRate)  * 2 )
+        let chunkSize: Int  = Int( 0.0005 * Double(audioManager.sampleRate) )
         
         if audioData.length > chunkSize {
             speedRegService.streamAudioData(audioData, completion: { (response, error) in

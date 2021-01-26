@@ -24,7 +24,7 @@ let HOST = "speech.googleapis.com"
 typealias SpeechRecognitionCompletionHandler = (StreamingRecognizeResponse?, NSError?) -> Void
 
 open class SpeechRecognitionService {
-    var sampleRate: Int = AudioEngineConfiguation.sampleRate
+    var sampleRate: Int = 16000
   private var streaming = false
 
   private var client: Speech!
