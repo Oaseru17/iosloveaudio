@@ -79,6 +79,7 @@ Dark mode
 
 Unit / UX test
 
+Localization
 
 
 **Improvement**
