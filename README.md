@@ -1,5 +1,7 @@
 # **IOS AUDIO SUBMISSION DOCUMENTATION**
 
+** TEST WITH A GOOD INTERNET SERVICE **
+
 **Task description**
 
 Develop an app that converts speech to text and allows for play back, with word highlighting.
