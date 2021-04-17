@@ -23,7 +23,7 @@ The following are the highlight of the requirement for the task
 
 4. Implemented in swift UI.
 
-**Requirements from initial interview chat**
+**Core highlight**
 
 1. Proper architecture: with the application growing in should be properly architected
 2. Ability to scale application fast: the application should be reusable with the iOS ecosystem and provide rapid iterations
@@ -41,11 +41,11 @@ MVVM highlights how each unit is implemented, while for the general outlook modu
 
 A swift package(module) is a group of related source codes that can run independently, this modular approach provides the benefit of scalability, usability, and multi-developer ease.
 
-**Scalability &amp; developer ease:** with the application growing build time increases, source files become numerous. This modular approach implemented allows the developer to concentrate on a section of the application, develop, build and test independent of the changes in the other modules.
+**Scalability &amp; developer ease:** with the application growing, build time increases, source files become numerous. This modular approach i implemented allows the developer to concentrate on a section of the application, develop, build and test independent of the changes in the other modules.
 
-**Rapid Iterations:** With this modular approach rapid iterations that require multi developers can easily be achieved, with each task tied to a particular module allow to easy changes, test, and deployment. For example, a change in UI should only affect the feature module while other modules remain untouched and vice versa
+**Rapid Iterations:** With this modular approach rapid iterations that require multi developers can easily be achieved, with each task tied to a particular module , allow for easy changes, test, and deployment. For example, a change in UI should only affect the feature module while other modules remain untouched and vice versa
 
-**Usability:** IOS is becoming a complete ecosystem from watches to mac, mobile devices, etc. all interconnected with swift UI the speed of deployment to these platforms was greatly increase. Modular architecture allows the usability of each framework independent of UI requirements
+**Usability:** IOS is becoming a complete ecosystem from watches to mac, mobile devices, etc. all interconnected with swift UI the speed of deployment to these platforms was greatly increase. Modular architecture allows the usability of each framework independent of UI requirements.. i.e the core functionality can be imported into the watchOS app, and while the UI is different
 
 ![Screenshot](diagram2.png)
 
@@ -53,7 +53,7 @@ Furthermore, each module can be release and managed in a git bucket repository t
 
 **View Builder pattern**
 
-With SwiftUI, navigation has been tightly coupled to the views, so Coordinator pattern though still achievable introduces a major boilerplate, the view builder pattern allows for the assignment of view building to a single class, thus provide a single source of truth for navigation and future changes in navigation flow. This is available in the MainViewBuilder class
+With SwiftUI, navigation has been tightly coupled to the views, so Co-ordinator pattern though still achievable introduces a major boilerplate, the view builder pattern i introduce allows for the assignment of view building to a single class, thus provide a single source of truth for navigation and future changes in navigation flow. This is available in the MainViewBuilder class
 
 **The benefit of modular architecture is numerous from the ease of onboarding new engineers. To rapid development and deployment.**
 
