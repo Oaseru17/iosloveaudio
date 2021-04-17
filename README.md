@@ -4,6 +4,7 @@
 
 Develop an app that converts speech to text and allows for play back, with word highlighting.
 
+**More unit / UI test will flow**
 
 **Figma Link**
 
